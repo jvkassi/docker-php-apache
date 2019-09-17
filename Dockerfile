@@ -5,6 +5,7 @@ FROM php:apache
 #install all the system dependencies and enable PHP modules 
 RUN apt-get update && apt-get install -y \
       libicu-dev \
+      libzip-dev \
       libpq-dev \
       git \
       zip \
