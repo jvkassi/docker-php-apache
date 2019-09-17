@@ -6,16 +6,16 @@ FROM php:apache
 RUN apt-get update && apt-get install -y \
       libicu-dev \
       libpq-dev \
-      libmcrypt-dev \
       git \
       zip \
+      libfreetype6-dev \
+      libjpeg62-turbo-dev \
       unzip \
     && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
     && docker-php-ext-install \
       intl \
       mbstring \
-      mcrypt \
       pcntl \
       pdo_mysql \
       pdo_pgsql \
