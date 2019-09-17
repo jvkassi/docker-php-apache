@@ -22,5 +22,8 @@ RUN apt-get update && apt-get install -y \
       pgsql \
       zip \
       opcache
-
+RUN pecl channel-update pecl.php.net \
+    && pecl install apcu \
+    && echo "extension=apcu.so" > $PHP_INI_DIR/conf.d/01_apcu.ini
+    
 RUN a2enmod rewrite
