@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:experimental
-FROM php:7.3-apache
+FROM php:7.4.0beta4-apache
 
 #install all the system dependencies and enable PHP modules 
 RUN apt-get update && apt-get install -y \
@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
       zip \
       libfreetype6-dev \
       libjpeg62-turbo-dev \
+      libonig-dev \
       unzip \
     && rm -r /var/lib/apt/lists/* \
     && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
