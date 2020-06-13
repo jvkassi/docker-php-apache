@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:experimental
-FROM php:apache
+FROM php:7.4-apache
 
 #install all the system dependencies and enable PHP modules 
 RUN apt-get update && apt-get install -y \
