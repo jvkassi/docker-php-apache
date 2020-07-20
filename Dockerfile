@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
       libzip-dev \
       libpq-dev \
       git \
-      zip \
+      zip \ 
       libfreetype6-dev \
       libjpeg62-turbo-dev \
       libonig-dev \
@@ -26,5 +26,8 @@ RUN apt-get update && apt-get install -y \
 RUN pecl channel-update pecl.php.net \
     && pecl install apcu \
     && echo "extension=apcu.so" > $PHP_INI_DIR/conf.d/01_apcu.ini
-    
+
+RUN docker-php-ext-configure gd 
+RUN docker-php-ext-install -j$(nproc) gd
+
 RUN a2enmod rewrite
